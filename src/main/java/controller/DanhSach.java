@@ -1,0 +1,21 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class DanhSach {
+    @GetMapping("/danhsach")
+    public String danhsach() {return "index";}
+
+    @RequestMapping("/save")
+    public String save(@RequestParam("hs") String[] condiment , Model model ) {
+        model.addAttribute("hs" , condiment);
+        return "save";
+    }
+
+}
